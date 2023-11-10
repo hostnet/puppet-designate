@@ -3,6 +3,18 @@
   description: Default pool
   attributes: {}
 
+  ns_records:
+<% @ns_records.sort.each do |priority, hostname| -%>
+    - hostname: <%= hostname %>
+      priority: <%= priority.to_s %>
+<% end -%>
+
+  nameservers:
+<% @nameservers.each do |nameserver| -%>
+    - host: <%= nameserver %>
+      port: <%= @dns_port.to_s %>
+<% end -%>
+
   targets:
 <% @pdns4_hosts.each do |pdns4_host| -%>
     - type: pdns4

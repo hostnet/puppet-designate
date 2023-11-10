@@ -8,6 +8,15 @@
 #  (Required) Token string to authenticate with the PowerDNS Authoritative
 #  Server.
 #
+# [*ns_records*]
+#  (Optional) List of the NS records for zones hosted within this pool. This
+#  parameter takes hash value of <priority>:<host> mapping.
+#  Defaults to {1 => 'ns1.example.org.'}
+#
+# [*nameservers*]
+#  (Optional) List out the nameservers for this pool.
+#  Defaults to ['127.0.0,1'].
+#
 # [*pdns4_hosts*]
 #  (Optional) Host running DNS service.
 #  Defaults to ['127.0.0,1'].
@@ -38,6 +47,8 @@
 #
 class designate::backend::pdns4 (
   $api_token,
+  $ns_records   = {1 => 'ns1.example.org.'},
+  $nameservers  = ['127.0.0.1'],
   $pdns4_hosts  = ['127.0.0.1'],
   $pdns4_port   = 53,
   $mdns_hosts   = ['127.0.0.1'],
