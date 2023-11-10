@@ -12,7 +12,7 @@
   nameservers:
 <% @nameservers.each do |nameserver| -%>
     - host: <%= nameserver %>
-      port: <%= @dns_port.to_s %>
+      port: <%= @pdns4_port.to_s %>
 <% end -%>
 
   targets:
