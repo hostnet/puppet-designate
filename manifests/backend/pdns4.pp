@@ -17,6 +17,10 @@
 #  (Optional) List out the nameservers for this pool.
 #  Defaults to ['127.0.0,1'].
 #
+# [*ns_port*]
+#  (Optional) Port of the nameservers we use to verify changes
+#  Defaults to 53.
+#
 # [*pdns4_hosts*]
 #  (Optional) Host running DNS service.
 #  Defaults to ['127.0.0,1'].
@@ -49,6 +53,7 @@ class designate::backend::pdns4 (
   $api_token,
   $ns_records   = {1 => 'ns1.example.org.'},
   $nameservers  = ['127.0.0.1'],
+  $ns_port      = 53,
   $pdns4_hosts  = ['127.0.0.1'],
   $pdns4_port   = 53,
   $mdns_hosts   = ['127.0.0.1'],
